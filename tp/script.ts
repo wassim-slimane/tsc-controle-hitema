@@ -22,22 +22,39 @@ interface Post {
     body: string,
 }
 
+interface UserPost {
+    user : User
+    posts : Post[]
+}
 
-let data : any ;
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const reponse = await fetch("https://jsonplaceholder.typicode.com/users") 
-    data = (await reponse.json()) as Array<Partial<User>>;
-
-    //render(data)
-})
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const reponse = await fetch("https://jsonplaceholder.typicode.com/posts") 
-    data = (await reponse.json()) as Array<Partial<Post>>;
+const get = async () => {
     
-    //render(data)
-})
+    let dataUser : any ;
+    const reponseUser = await fetch("https://jsonplaceholder.typicode.com/users") 
+    dataUser = (await reponseUser.json()) as Array<Partial<User>>;
 
+    let dataPost : any ;
+    const reponsePost = await fetch("https://jsonplaceholder.typicode.com/posts") 
+    dataPost = (await reponsePost.json()) as Array<Partial<Post>>;
 
+    dataPost.array.forEach( post => {
+        
+    });
+}
+
+function render(data: any){
+    let html = ""
+    data.forEach( item => {é
+        const devise = ( pays.currencies ) ? pays.currencies[Object.keys(pays.currencies)[0]].name : "" ;
+        html += `
+        <article>
+            <img src="${pays.flags.png}" alt="">
+            <h2>${pays.name.common}</h2>
+            <p>${devise}</p>
+        </article>
+        `
+    } )
+    document.querySelector("content").innerHTML = html
+}
 
